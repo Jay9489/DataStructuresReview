@@ -1,0 +1,70 @@
+/******************************************************************************
+Java Linked List practice
+*******************************************************************************/
+import java.util.*;
+
+public class Main
+{
+    
+ public static void selectionSort(LinkedList<Integer> arr1)
+{
+    int startScan, // to hold the starting position
+    index, // to keep track of the next postion
+    minIndex, // to hold the current smallest element postion to be potentially replaced. 
+    minValue; // hold the current smallest number 
+     
+     // iterate through the linked list -1, 
+     for (startScan = 0; startScan < (arr1.size() - 1) ; startScan++)
+     {
+        minIndex = startScan; // set the min index to startscan position
+        minValue = arr1.get(startScan); // set min value to the element that startscan is on
+        //iterate through the next postion concurrently.
+        for (index = startScan + 1 ; index < arr1.size() ; index++)
+        {
+            // if the value of next position is smaller than the current min value
+            if (arr1.get(index) < minValue)
+            {
+                minValue = arr1.get(index); // set min value equal to the new smallest value
+                minIndex = index; // set min index up to the next position. 
+            }
+                
+        }
+        // swap values with the min value being in the same potion as the smallest element. 
+        arr1.set(minIndex, arr1.get(startScan));
+        arr1.set(startScan, minValue);
+     }
+     
+}
+
+	public static void main(String[] args) {
+	    
+		// Create a linked list Object
+		LinkedList<Integer> obj = new LinkedList<Integer>();
+		
+		//add objects to linked list
+		obj.add(3);
+		obj.add(5);
+		obj.add(6);
+		obj.add(1);
+		obj.add(2);
+		obj.add(4);
+		obj.add(10);
+		obj.add(7);
+		obj.add(9);
+		obj.add(8);
+		
+		//display list
+		System.out.println(obj);
+		
+		// test selection sort 
+		selectionSort(obj);
+		System.out.println(obj);
+
+	}
+}
+
+
+
+
+
+
